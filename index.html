@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Wizy Club - Video Feed</title>
+
+  <!-- Inter Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background-dark": "#0A0A0A",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-background-dark font-sans antialiased">
+  <div
+    class="relative w-full h-screen max-h-[960px] max-w-[450px] mx-auto overflow-hidden"
+  >
+    <!-- Background -->
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/1c585af5fd9ec5a1068458e5f8e94d526e45a463/assets/feed.jpg');"
+    ></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40"
+    ></div>
+
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col h-full text-white">
+      <!-- HEADER -->
+      <header class="pt-10 px-5">
+        <div class="flex items-center justify-between space-x-2 text-sm font-medium">
+          <!-- Search Icon -->
+          <button
+            id="searchToggle"
+            class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all"
+          >
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183
+              19 11 19C6.58172 19 3 15.4183 3
+              11C3 6.58172 6.58172 3 11
+              3C15.4183 3 19 6.58172 19
+              11Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <!-- TABS + SEARCH -->
+          <div class="flex-grow tabs-container">
+            <div class="tabs-wrapper" id="tabsWrapper">
+              <!-- POPULAR -->
+              <button
+                class="tab-button active flex-1 flex items-center justify-center gap-1.5 px-4 py-2 rounded-full"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/popular.svg"
+                  class="tab-icon header-icon"
+                  alt="Popular"
+                />
+                <span class="tab-text text-sm font-semibold">Popüler</span>
+              </button>
+
+              <!-- FAVORITES -->
+              <button
+                class="tab-button inactive flex-1 flex items-center justify-center gap-1.5 px-4 py-2 rounded-full"
+              >
+                <svg class="tab-icon header-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 21.35L10.55 20.03C5.4 15.36 2
+                         12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24
+                         3 10.91 3.81 12 5.09C13.09 3.81 14.76
+                         3 16.5 3C19.58 3 22 5.42 22
+                         8.5C22 12.28 18.6 15.36 13.45
+                         20.04L12 21.35Z"
+                  />
+                </svg>
+                <span class="tab-text text-sm font-semibold">Favoriler</span>
+              </button>
+
+              <!-- SEARCH OVERLAY -->
+              <div class="search-overlay" id="searchOverlay">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Ara..."
+                  id="searchInput"
+                />
+                <div class="close-search-btn" id="closeSearch">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- FEED -->
+      <main class="flex-grow flex items-end px-5 pb-20">
+        <div class="w-full flex justify-between items-end gap-4">
+          <!-- LEFT FEED TEXT -->
+          <div class="flex-grow space-y-3 pb-4">
+            <div class="flex items-center gap-3">
+              <img
+                class="w-10 h-10 rounded-full object-cover border-2 border-white/50"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCRwxAC5yxQrMUuVk7FB_gI7IH_fKTHN7CAHIMRN9vQ-9377FHWNR4_4V3GHPnbyVkZ5iKJ1_UnREe7Va6-o8M7LGRkjMdLPBxWkI3flF6jRqLXd4BTe7MP1MvUdeerLdsM5tmbcPgx4Rt_-L9hi1-ehuAxgw5om2S5VC4G9d58jybI3DmBq2mKAuln2sAGAK4NSyigK3cPv0jjLcChgIw6TkqB3Jxsz8FQUqqhuvFLzY2Z4SCV9UBniDvp-ob4gZkG_lYs_fBMaPm"
+                alt="@karennne"
+              />
+              <div class="font-semibold text-base leading-tight">@karennne</div>
+            </div>
+
+            <p class="text-sm text-white/90 leading-snug">
+              Captivating landscape views from my latest adventure. #avicii #wflove #nature
+              #travel
+            </p>
+          </div>
+
+          <!-- RIGHT ACTION BUTTONS -->
+          <aside class="flex flex-col items-center space-y-2 pb-4">
+            <!-- Like Button -->
+            <div class="flex flex-col items-center">
+              <button id="likeBtn">
+                <img
+                  id="likeIcon"
+                  src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/like.svg"
+                  class="like-icon"
+                  alt="Like"
+                />
+              </button>
+              <span id="likeCount" class="text-xs font-semibold mt-0.5">4.4k</span>
+            </div>
+
+            <!-- Save Button -->
+            <div class="flex flex-col items-center">
+              <button id="saveBtn">
+                <img
+                  id="saveIcon"
+                  src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/save.svg"
+                  class="action-icon save-icon"
+                  alt="Save"
+                />
+              </button>
+              <span id="saveCount" class="text-xs font-semibold mt-0.5">856</span>
+            </div>
+
+            <!-- Share Button -->
+            <div class="flex flex-col items-center">
+              <button id="shareBtn">
+                <img
+                  id="shareIcon"
+                  src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/share.svg"
+                  class="action-icon share-icon"
+                  alt="Share"
+                />
+              </button>
+              <span id="shareCount" class="text-xs font-semibold mt-0.5">2.1k</span>
+            </div>
+
+            <!-- Shopping Button -->
+            <div class="flex flex-col items-center">
+              <button id="shoppingBtn">
+                <img
+                  id="shoppingIcon"
+                  src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/shopping.svg"
+                  class="action-icon shopping-icon"
+                  alt="Shopping"
+                />
+              </button>
+              <span id="shoppingCount" class="text-xs font-semibold mt-0.5">124</span>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <!-- FOOTER NAV -->
+      <footer class="absolute bottom-0 left-0 right-0 bg-black/50 backdrop-blur-md px-5 py-2">
+        <nav class="flex justify-around items-center h-16">
+          <a class="flex flex-col items-center text-center text-white space-y-1">
+            <img
+              src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/home.svg"
+              class="nav-icon active"
+              alt="Ana Sayfa"
+            />
+            <span class="text-xs font-medium">Ana Sayfa</span>
+          </a>
+          <a class="flex flex-col items-center text-center text-white/70 space-y-1">
+            <img
+              src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/for_you.svg"
+              class="nav-icon inactive"
+              alt="Sana Özel"
+            />
+            <span class="text-xs font-medium">Sana Özel</span>
+          </a>
+          <a class="flex flex-col items-center text-center text-white/70 space-y-1">
+            <img
+              src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/deal.svg"
+              class="nav-icon inactive"
+              alt="Günün Fırsatı"
+            />
+            <span class="text-xs font-medium">Günün Fırsatı</span>
+          </a>
+          <a class="flex flex-col items-center text-center text-white/70 space-y-1">
+            <img
+              src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/notification.svg"
+              class="nav-icon inactive"
+              alt="Bildirimler"
+            />
+            <span class="text-xs font-medium">Bildirimler</span>
+          </a>
+          <a class="flex flex-col items-center text-center text-white/70 space-y-1">
+            <img
+              src="https://raw.githubusercontent.com/umittasdemir1/WizyClubApp/main/assets/profile.svg"
+              class="nav-icon inactive"
+              alt="Profil"
+            />
+            <span class="text-xs font-medium">Profil</span>
+          </a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
