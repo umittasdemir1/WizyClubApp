@@ -1,0 +1,195 @@
+/* Base Styles */
+body {
+  min-height: max(884px, 100dvh);
+  transition: background 0.25s ease;
+}
+
+/* --- ICON STYLES --- */
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+.nav-icon.inactive {
+  filter: brightness(0) invert(1) opacity(0.7);
+}
+
+/* Action Icons - Tüm butonlar varsayılan beyaz */
+.action-icon,
+.like-icon {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.2s ease, filter 0.3s ease;
+  filter: brightness(0) invert(1);
+}
+
+/* Like Icon - Active State (#ff2146 rengi) */
+.like-icon.active {
+  filter: brightness(0) saturate(100%) invert(29%) sepia(92%) saturate(7490%)
+    hue-rotate(345deg) brightness(102%) contrast(106%);
+}
+
+/* TikTok Style Bounce Animation */
+@keyframes likeHeartBounce {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.3);
+  }
+  30% {
+    transform: scale(0.95);
+  }
+  45% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.like-icon.bounce {
+  animation: likeHeartBounce 0.6s ease-out;
+}
+
+.save-icon.active {
+  filter: brightness(0) saturate(100%) invert(81%) sepia(61%) saturate(2456%)
+    hue-rotate(360deg) brightness(102%) contrast(101%);
+}
+
+.share-icon.active {
+  filter: brightness(0) saturate(100%) invert(51%) sepia(96%) saturate(4456%)
+    hue-rotate(191deg) brightness(101%) contrast(101%);
+}
+
+.shopping-icon.active {
+  filter: brightness(0) saturate(100%) invert(62%) sepia(98%) saturate(1786%)
+    hue-rotate(86deg) brightness(96%) contrast(101%);
+}
+
+/* Press Effect */
+.action-icon:active,
+.like-icon:active {
+  transform: scale(0.9);
+}
+
+.header-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* --- TABS --- */
+.tab-button {
+  transition: all 0.3s ease;
+}
+.tab-button.active {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+}
+.tab-button.active .tab-text {
+  color: white;
+}
+.tab-button.inactive .tab-text {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tabs-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 4px;
+  gap: 4px;
+  position: relative;
+  transition: padding 0.3s ease;
+  overflow: hidden;
+}
+
+.tabs-wrapper.search-mode .tab-button {
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+}
+
+#searchToggle {
+  transition: width 0.35s ease, opacity 0.25s ease, margin-right 0.25s ease,
+    padding 0.25s ease;
+}
+body.search-open #searchToggle {
+  width: 0 !important;
+  opacity: 0 !important;
+  padding: 0 !important;
+  margin-right: 0 !important;
+  pointer-events: none;
+}
+
+/* --- SEARCH OVERLAY --- */
+.search-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.search-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* --- INPUT STYLES --- */
+.search-input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+
+  color: white;
+  width: 100%;
+  padding: 8px 32px 8px 0;
+  font-size: 14px;
+  font-family: inherit;
+}
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Close button */
+.close-search-btn {
+  position: absolute;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.close-search-btn svg {
+  width: 100%;
+  height: 100%;
+  stroke: white;
+  stroke-width: 2;
+}
+.close-search-btn:active {
+  transform: scale(0.9);
+}
